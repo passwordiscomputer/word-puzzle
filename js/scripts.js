@@ -1,18 +1,28 @@
 $(document).ready(function () {
+  var sentence = "";
+  $("form#sentence-form").submit(function(event) {
+    sentence = $("input#some-sentence").val();
+    var vowels = ["a", "e", "i", "o", "u"];
+    var sentenceArray = sentence.split("");
+    var newSentence = sentenceArray.map(function(letter) {
+      for (x = 0; x <= vowels.length; x = x + 1) {
+        if (letter === vowels[x]) {
+          return "-";
+        }
+      } return letter;
+    });
 
-  var sentence = prompt("Give me a word");
-  var vowels = ["a", "e", "i", "o", "u"];
-  var sentenceArray = sentence.split("");
+    $("#word").text(newSentence.join(""));
 
-
-  var newSentence = sentenceArray.map(function(letter) {
-    for (x = 0; x <= vowels.length; x = x + 1) {
-      if (letter === vowels[x]) {
-        return "-";
-      }
-    } return letter;
+    event.preventDefault();
   });
-
-  $("#word").text(newSentence.join(""));
-
+  $("form#check-form").submit(function(event){
+    event.preventDefault();
+    var checkSentence = $("input#check-input").val();
+    if(sentence === checkSentence){
+      alert("goodjob");
+    }else {
+      alert("try again my friend");
+    };
+  });
 });

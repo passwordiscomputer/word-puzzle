@@ -10,7 +10,22 @@
     <title></title>
   </head>
   <body>
-    <p id="word"></p>
+    <div class="container">
 
+
+      <form id="sentence-form">
+        <label for="sentence-input">Please Enter a sentence:</label>
+        <input id="some-sentence" type="text">
+
+        <button type="submit" class="btn btn-primary">Submit!</button>
+      </form>
+      <p id="word"></p>
+      <form id="check-form">
+        <label for="check-input">Guess what the original sentence was</label>
+        <input id="check-input" type="text">
+
+        <button type="submit" class="btn btn-danger">Submit!</button>
+      </form>
+    </div>
   </body>
 </html>
